@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sellwanomar-sudo.github.io/sitemap.xml
