@@ -1,6 +1,6 @@
 # Content Authority Lab
 
-Live site: **https://sellwanomar-sudo.github.io**
+Live site: **https://contentauthoritylab.com**
 
 This is the portfolio and blog of Selwan Omar, an SEO, AEO and GEO content strategist. It's hosted free on GitHub Pages.
 You can do everything below in your browser on github.com, with nothing to install.
@@ -85,7 +85,7 @@ Keep 2–3 cards and delete the oldest, or the `More articles coming soon` box.
 **4. Tell Google**
 In `sitemap.xml`, add this line above `</urlset>` and commit:
 ```xml
-<url><loc>https://sellwanomar-sudo.github.io/blog/arabic-seo-tips.html</loc><lastmod>2026-10-05</lastmod></url>
+<url><loc>https://contentauthoritylab.com/blog/arabic-seo-tips.html</loc><lastmod>2026-10-05</lastmod></url>
 ```
 Then in Google Search Console, use **URL Inspection → Request indexing** for the new URL.
 
@@ -107,11 +107,14 @@ To hide a post without deleting it, rename the file so it starts with `_` (e.g. 
 - **Undo a mistake:** open the file, click **History**, open the previous version, copy it, and paste it back in.
 
 ## Get found on Google
-1. In Google Search Console, add the URL-prefix property `https://sellwanomar-sudo.github.io/`.
+1. In Google Search Console, add the URL-prefix property `https://contentauthoritylab.com/`.
    Choose **HTML tag** verification and paste the tag just below `<head>` in `index.html`.
 2. Submit `sitemap.xml`.
 3. Add the site link to LinkedIn (Contact info and Featured), clippings.me and your CV.
 
-## Optional: a custom domain (about $10–15 a year)
-Buy e.g. `contentauthoritylab.com`, add it in **Settings → Pages → Custom domain**, and follow GitHub's DNS steps.
-Then replace `sellwanomar-sudo.github.io` with the new domain in all files.
+## Your domain
+`contentauthoritylab.com` is registered at Cloudflare and connected to this repository.
+DNS (Cloudflare → DNS → Records) must stay as: four A records on `@` pointing to 185.199.108–111.153,
+and a CNAME on `www` pointing to `sellwanomar-sudo.github.io`. All of them set to **DNS only**, never "Proxied".
+The `CNAME` file in this repository holds the domain name: don't delete it.
+The old `sellwanomar-sudo.github.io` address now redirects here automatically.

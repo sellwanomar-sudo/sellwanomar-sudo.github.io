@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sellwanomar-sudo.github.io/sitemap.xml
+Sitemap: https://contentauthoritylab.com/sitemap.xml
