@@ -2,7 +2,7 @@
 
 Live site: **https://contentauthoritylab.com**
 
-This is the portfolio and blog of Selwan Omar, an SEO, AEO and GEO content strategist. It's hosted free on GitHub Pages.
+This is the portfolio and blog of Content Authority Lab, a bilingual SEO, AEO and GEO content team. It's hosted free on GitHub Pages.
 You can do everything below in your browser on github.com, with nothing to install.
 
 **The golden rule:** every change you save ("commit") on GitHub goes live automatically within 1–2 minutes.
@@ -99,7 +99,7 @@ To hide a post without deleting it, rename the file so it starts with `_` (e.g. 
 ---
 
 ## Other everyday changes
-- **Connect the contact form:** get a free key at https://web3forms.com, open `index.html`, find `YOUR_WEB3FORMS_ACCESS_KEY` and replace it with your key.
+- **Connect the contact form:** get a free key at https://web3forms.com using `team@contentauthoritylab.com`, then open `index.html`, find `YOUR_WEB3FORMS_ACCESS_KEY` and replace it with your key.
 - **Add a work sample:** in `work/`, use **Add file → Upload files** to add the PDF and a cover image. Then in `index.html`, copy one `<article class="work">` block and edit it. Set `data-cat` to `seo`, `web` or `social` so the filters work.
 - **Remove a work sample:** delete its `<article class="work">…</article>` block in `index.html`.
 - **Change text on the home page:** edit `index.html` with ✏️. Use **Ctrl+F** in the editor to find the sentence.
@@ -118,3 +118,12 @@ DNS (Cloudflare → DNS → Records) must stay as: four A records on `@` pointin
 and a CNAME on `www` pointing to `sellwanomar-sudo.github.io`. All of them set to **DNS only**, never "Proxied".
 The `CNAME` file in this repository holds the domain name: don't delete it.
 The old `sellwanomar-sudo.github.io` address now redirects here automatically.
+
+## Your email
+`team@contentauthoritylab.com` is set up through Cloudflare Email Routing (free) and forwards to sellwan.omar@gmail.com.
+Manage it in Cloudflare → Email Routing → Routing rules, where you can add more addresses such as `hello@` or `billing@`.
+To send mail *from* that address, add it in Gmail under Settings → Accounts → "Send mail as", using an SMTP service such as Brevo.
+
+## Adding your name later
+The site currently speaks as a team and shows no personal name. When you want to add yourself and your colleagues,
+edit the About section of `index.html`, and change the author box and byline in the blog posts.
