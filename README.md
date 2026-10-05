@@ -3,112 +3,49 @@
 Live site: **https://contentauthoritylab.com**
 
 This is the portfolio and blog of Content Authority Lab, a bilingual SEO, AEO and GEO content team. It's hosted free on GitHub Pages.
-You can do everything below in your browser on github.com, with nothing to install.
 
-**The golden rule:** every change you save ("commit") on GitHub goes live automatically within 1–2 minutes.
+**The golden rule:** every change you commit to the `main` branch goes live automatically within 1 to 2 minutes.
 If you don't see a change, press **Ctrl+F5** on the site to skip your browser's cache.
 
+**How the site is built:** you edit the files in `_src/`, run `python build.py`, then `python audit_site.py`, and commit.
+`build.py` adds the shared header, footer, breadcrumbs, structured data (JSON-LD) and `sitemap.xml` to every page, so you never edit those by hand.
+Both scripts use plain Python 3 with nothing to install.
+
 ```
-index.html                 Home page (hero, services, work, about, blog preview, contact form)
-blog/index.html            Blog list page
-blog/<post>.html           One file per blog post
-blog/_post-template.html   Blank post template (not published)
-work/                      Case-study PDFs and cover images
-assets/style.css           Design and colours
-sitemap.xml                List of pages for Google
+_src/header.html, footer.html   Shared header and footer (edit once, every page updates)
+_src/pages/                     One file per page. The folder path matches the URL
+_src/pages/blog/_post-template.html   Blank post template (files starting with _ are not published)
+build.py                        Builds the HTML pages and sitemap.xml from _src/
+audit_site.py                   Checks links, titles, descriptions, H1s, schema and sitemap. Must say PASS before you publish
+_planning/site-plan.md          Page inventory, linking matrix and parked pages
+work/                           Case-study PDFs and cover images
+assets/style.css, site.js       Design and behavior
 ```
 
----
+The generated folders (`services/`, `industries/`, `work/<case>/`, `about/`, `contact/`, `blog/`) and `index.html` are build output. Don't edit them directly: your change would be overwritten on the next build.
 
-## ✏️ Edit an existing blog post
-1. Open https://github.com/sellwanomar-sudo/sellwanomar-sudo.github.io/tree/main/blog
-2. Click the post file, e.g. `seo-aeo-geo-explained.html`.
-3. Click the **pencil icon ✏️** (top right of the file).
-4. Change the text. Article text sits between `<article class="article">` and `</article>`.
-5. Click **Commit changes…** and then **Commit changes** again.
-6. If you changed the title or summary, update the matching card in `blog/index.html` (and in `index.html` if it's shown on the home page).
+## Edit a page
+1. Open the page's file in `_src/pages/` (for example `_src/pages/services/aeo-geo.html`).
+2. The JSON block at the top holds the title (max 60 characters), meta description (max 155) and page type. The HTML below it is the page body.
+3. Replace each yellow `[CONTENT: ...]` box with your copy. The audit lists the ones still left.
+4. FAQ: write each question as `<details><summary>Question?</summary><p>Answer.</p></details>` inside the `<div class="faq">`. It's published as FAQ structured data automatically.
+5. Run `python build.py` and `python audit_site.py`, then commit.
 
-## ➕ Add (publish) a new blog post
-**1. Create the post file**
-1. Open the template: https://github.com/sellwanomar-sudo/sellwanomar-sudo.github.io/blob/main/blog/_post-template.html
-2. Click the **Copy raw file** icon (two overlapping squares, top right of the file).
-3. Go to the `blog` folder and click **Add file → Create new file**.
-4. Name it with a short, keyword-rich slug ending in `.html`, e.g. `arabic-seo-tips.html` (lowercase, with hyphens and no spaces).
-5. Paste with Ctrl+V, then replace every CAPITALISED placeholder:
-
-   | Placeholder | Replace with |
-   |---|---|
-   | `POST TITLE` (4 places) | Your headline |
-   | `ONE-SENTENCE SUMMARY` (2 places) | Your meta description (140–160 characters) |
-   | `POST-SLUG` (2 places) | Your file name without `.html`, e.g. `arabic-seo-tips` |
-   | `YYYY-MM-DD` (2 places) | Today's date, e.g. `2026-10-05` |
-   | `CATEGORY · CATEGORY` | e.g. `SEO · Localization` |
-   | `DD Month YYYY · X min read` | e.g. `5 October 2026 · 7 min read` |
-
-6. Write your article inside `<article class="article">`. Use this formatting cheat sheet:
-
-   | You want | Type |
-   |---|---|
-   | Paragraph | `<p>Text</p>` |
-   | Section heading | `<h2>Heading</h2>` |
-   | Sub-heading | `<h3>Heading</h3>` |
-   | **Bold** | `<strong>text</strong>` |
-   | Link | `<a href="https://…">link text</a>` |
-   | Bullet list | `<ul><li>One</li><li>Two</li></ul>` |
-   | Numbered list | `<ol><li>One</li><li>Two</li></ol>` |
-   | Quote | `<blockquote>Quote</blockquote>` |
-   | Image | `<img src="../work/image-name.png" alt="Describe the image">` |
-
-   **Shortcut:** write the post in Word or Google Docs, then paste it into Claude and ask:
-   *"Convert this into my Content Authority Lab blog template, with slug X."*
-   Claude will return the whole file ready to paste in.
-
-7. Click **Commit changes**.
-
-**2. Add it to the blog list**
-1. Open `blog/index.html` and click ✏️.
-2. Find the comment `NEW POSTS GO HERE`. Directly below it, paste this (newest post at the top):
-   ```html
-   <a class="post-card" href="arabic-seo-tips.html">
-     <span class="meta">5 Oct 2026 · 7 min read</span>
-     <h3>Your post title</h3>
-     <p>One-sentence summary.</p>
-     <span class="more">Read article →</span>
-   </a>
-   ```
-3. Commit.
-
-**3. (Optional) Feature it on the home page**
-In `index.html`, find `From the blog`. Paste the same card there, with the link changed to `blog/arabic-seo-tips.html`.
-Keep 2–3 cards and delete the oldest, or the `More articles coming soon` box.
-
-**4. Tell Google**
-In `sitemap.xml`, add this line above `</urlset>` and commit:
-```xml
-<url><loc>https://contentauthoritylab.com/blog/arabic-seo-tips.html</loc><lastmod>2026-10-05</lastmod></url>
-```
-Then in Google Search Console, use **URL Inspection → Request indexing** for the new URL.
-
-## 🗑️ Remove a blog post
-1. Open the post file in `blog/`, click the **⋯** menu (top right), choose **Delete file**, then commit.
-2. Remove its card from `blog/index.html`, and from `index.html` if it's featured there.
-3. Remove its line from `sitemap.xml`.
-
-To hide a post without deleting it, rename the file so it starts with `_` (e.g. `_arabic-seo-tips.html`) and remove its cards.
-
----
+## Add a blog post
+1. Copy `_src/pages/blog/_post-template.html` to `_src/pages/blog/your-slug.html` and fill in every CAPITALIZED placeholder.
+2. Add a card for it in `_src/pages/blog/index.html` (and optionally in `_src/pages/index.html`).
+3. Run `python build.py` (it adds the post to `sitemap.xml`) and `python audit_site.py`, then commit.
+4. In Google Search Console, use **URL Inspection → Request indexing**.
 
 ## Other everyday changes
-- **Connect the contact form:** get a free key at https://web3forms.com using `team@contentauthoritylab.com`, then open `index.html`, find `YOUR_WEB3FORMS_ACCESS_KEY` and replace it with your key.
-- **Add a work sample:** in `work/`, use **Add file → Upload files** to add the PDF and a cover image. Then in `index.html`, copy one `<article class="work">` block and edit it. Set `data-cat` to `seo`, `web` or `social` so the filters work.
-- **Remove a work sample:** delete its `<article class="work">…</article>` block in `index.html`.
-- **Change text on the home page:** edit `index.html` with ✏️. Use **Ctrl+F** in the editor to find the sentence.
-- **Change colours:** edit the values at the top of `assets/style.css`.
+- **Connect the contact form:** get a free key at https://web3forms.com using `team@contentauthoritylab.com`, then in `_src/pages/contact.html` replace `YOUR_WEB3FORMS_ACCESS_KEY` with it and rebuild.
+- **Add a case study:** add the PDF and cover PNG to `work/`, copy a file in `_src/pages/work/`, then add its card to `_src/pages/work/index.html` and link it from the relevant service and industry pages.
+- **Change colors:** edit the values at the top of `assets/style.css`.
 - **Undo a mistake:** open the file, click **History**, open the previous version, copy it, and paste it back in.
 
 ## Get found on Google
 1. In Google Search Console, add the URL-prefix property `https://contentauthoritylab.com/`.
-   Choose **HTML tag** verification and paste the tag just below `<head>` in `index.html`.
+   Choose **DNS** verification in Cloudflare (the HTML tag would need adding to `build.py`).
 2. Submit `sitemap.xml`.
 3. Add the site link to LinkedIn (Contact info and Featured), clippings.me and your CV.
 
@@ -124,6 +61,5 @@ The old `sellwanomar-sudo.github.io` address now redirects here automatically.
 Manage it in Cloudflare → Email Routing → Routing rules, where you can add more addresses such as `hello@` or `billing@`.
 To send mail *from* that address, add it in Gmail under Settings → Accounts → "Send mail as", using an SMTP service such as Brevo.
 
-## Adding your name later
-The site currently speaks as a team and shows no personal name. When you want to add yourself and your colleagues,
-edit the About section of `index.html`, and change the author box and byline in the blog posts.
+## Voice and names
+The HTML pages speak as "we". The About page names Selwan Omar as Founder and Lead Strategist, with Person structured data linked to the Organization (set in `build.py`). The PDFs in `work/` are unchanged.

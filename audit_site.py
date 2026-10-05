@@ -16,6 +16,7 @@ Warnings (reported, don't fail):
   - pages with fewer than 2 inbound internal links
   - canonical that doesn't match the page's own URL
   - em dashes in visible text (house style)
+  - unfilled [CONTENT: ...] placeholders
 """
 import json
 import posixpath
@@ -31,6 +32,7 @@ MAX_DEPTH = 2
 TITLE_MAX = 60
 DESC_MAX = 155
 NEEDS_SOURCE = re.compile(r"\[NEEDS SOURCE", re.I)
+PLACEHOLDER = re.compile(r"\[CONTENT:")
 
 
 class PageParser(HTMLParser):
@@ -256,6 +258,9 @@ def main():
         n = len(NEEDS_SOURCE.findall(raw))
         if n:
             err(url, f"{n} [NEEDS SOURCE] marker(s) left")
+        p = len(PLACEHOLDER.findall("".join(pp.text)))
+        if p:
+            warn(url, f"{p} [CONTENT] placeholder(s) to fill")
         if "—" in "".join(pp.text):
             warn(url, "em dash in visible text")
     for t, urls in titles.items():

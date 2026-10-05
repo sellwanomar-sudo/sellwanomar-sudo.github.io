@@ -1,0 +1,8 @@
+# GitHub Pages (Jekyll) settings. Keeps working files off the public site.
+# Folders starting with "_" (like _src and _planning) are already private.
+exclude:
+  - README.md
+  - audit_site.py
+  - build.py
+  - _src
+  - _planning

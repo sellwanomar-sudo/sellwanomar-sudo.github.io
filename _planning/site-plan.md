@@ -43,7 +43,7 @@ Case studies have no primary query of their own. Their job is to prove the servi
 | `/services/on-page-optimization/`, `/services/performance-tracking/` | Never as separate pages unless Search Console shows impressions that S1 and S3 can't satisfy |
 | Arabic, English, or city/country service variants | Search Console impressions for the variant query (e.g. "seo content writing dubai") with S1 ranking poorly for it |
 | `/industries/skincare-content/` | Ecommerce page ranks for skincare queries it can't hold. Three skincare clients already exist, so this is the likeliest first split |
-| `/industries/finance-content/` (precious metals, regulated) | A second finance client, or ISA Bullion data with sources and dates |
+| `/industries/fintech-finance-content/` | ISA Bullion is the first proof. Unlocks with a second finance or fintech client, or ISA Bullion data with sources and dates |
 | `/industries/education-content/` | More than one education client (only Al-Hayat School today) |
 | Revbay (iGaming SEO, Malta, 2022-2026) case study | Any figures or a PDF for that work |
 
@@ -99,7 +99,7 @@ The header and footer links above appear on every page and aren't repeated below
 |---|---|---|
 | I1 Logistics | S1, S4, S6, S2 | W1, W7 |
 | I2 iGaming | S1, S5, S4 | W4 |
-| I3 B2B | S1, S4, S6, S3 | W7, W1, W3 |
+| I3 B2B | S1, S4, S6, S3 | W7, W1 |
 | I4 Ecommerce | S5, S1, S2, S6 | W2, W5, W6, W8 |
 
 ### Case studies → services, industry, next case study
@@ -108,7 +108,7 @@ The header and footer links above appear on every page and aren't repeated below
 |---|---|---|---|
 | W1 Vervo SEO | S1, S2, S4, S5 | I1, I3 | W7 (same client, LinkedIn side) |
 | W2 Khan El Kaser | S1, S2 | I4 | W8 (same brand's social) |
-| W3 ISA Bullion | S1, S4 | I3 (see Q4) | W1 |
+| W3 ISA Bullion | S1, S4, S3 | none (Q4) | W1 |
 | W4 iGaming review | S1, S5 | I2 | W3 |
 | W5 Beesline | S5, S4 | I4 | W8 (same brand's social) |
 | W6 Hayaty | S5, S4, S6, S1 | I4 | W2 |
@@ -149,6 +149,14 @@ Figures I'll use as-is because they're on the current site: "6+ years in content
 - **Q2. Voice and name.** The PDFs are first person and signed "Selwan Omar". The site speaks as a nameless team. Should the HTML case studies use "we" while the PDF downloads stay as they are, with your name? And should About name you as the lead (good for E-E-A-T and Person schema) or stay nameless?
 - **Q3. Naming the iGaming site.** The review was ghostwritten, and the PNG shows the live URLs on ar.online-casinos.net. Should I link to the live review, name the domain without linking, or keep it anonymous ("an Arabic-English casino affiliate")?
 - **Q4. ISA Bullion's industry home.** It's a DMCC-licensed bullion dealer, not obviously B2B. Should I link it from B2B as a "regulated sector" proof, or leave it attached only to the services until a finance page exists?
+
+### Decisions (approved 5 Oct 2026)
+
+- **Q1.** Only documented front-end work is shown. Anything beyond it needs a source first.
+- **Q2.** The HTML pages speak as "we", and the PDFs are unchanged. About names Selwan Omar, Founder and Lead Strategist, with Person schema linked to the Organization.
+- **Q3.** iGaming stays anonymous: no link to or mention of the domain, and the PNG isn't shown because it displays the domain.
+- **Q4.** ISA Bullion is linked from service pages only, not from B2B. It's parked as the proof that would unlock `/industries/fintech-finance-content/`.
+- **Scope.** The site owner writes all copy. The build supplies structure, linking, schema and visible `[CONTENT: ...]` placeholders.
 
 ## 6. Build notes
 

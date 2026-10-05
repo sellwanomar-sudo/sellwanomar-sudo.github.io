@@ -3,44 +3,75 @@ document.querySelectorAll('[data-year]').forEach(el => el.textContent = new Date
 
 // Mobile menu
 const toggle = document.querySelector('.menu-toggle');
-const links = document.querySelector('.links');
+const links = document.getElementById('nav-links');
 if (toggle && links) {
   toggle.addEventListener('click', () => {
     const open = links.classList.toggle('open');
     toggle.setAttribute('aria-expanded', open);
   });
-  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    links.classList.remove('open');
-    toggle.setAttribute('aria-expanded', 'false');
-  }));
 }
 
-// Work filters
-const filters = document.querySelectorAll('.filter');
-filters.forEach(btn => btn.addEventListener('click', () => {
-  filters.forEach(b => b.setAttribute('aria-pressed', b === btn));
-  const cat = btn.dataset.filter;
-  document.querySelectorAll('.work').forEach(card => {
-    card.hidden = cat !== 'all' && !card.dataset.cat.split(' ').includes(cat);
+// Dropdowns: click or Enter/Space opens, Escape closes, focus leaving closes
+const menus = document.querySelectorAll('.menu-btn');
+const closeMenu = btn => {
+  btn.setAttribute('aria-expanded', 'false');
+  document.getElementById(btn.getAttribute('aria-controls')).classList.remove('open');
+};
+menus.forEach(btn => {
+  const panel = document.getElementById(btn.getAttribute('aria-controls'));
+  btn.addEventListener('click', () => {
+    const open = btn.getAttribute('aria-expanded') !== 'true';
+    menus.forEach(b => b !== btn && closeMenu(b));
+    btn.setAttribute('aria-expanded', open);
+    panel.classList.toggle('open', open);
   });
+  btn.parentElement.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && btn.getAttribute('aria-expanded') === 'true') {
+      closeMenu(btn);
+      btn.focus();
+    }
+  });
+  btn.parentElement.addEventListener('focusout', e => {
+    if (!btn.parentElement.contains(e.relatedTarget)) closeMenu(btn);
+  });
+});
+document.addEventListener('click', e => {
+  menus.forEach(btn => { if (!btn.parentElement.contains(e.target)) closeMenu(btn); });
+});
+
+// Work filters: one choice per group, cards must match every group
+const groups = document.querySelectorAll('.filters[data-group]');
+const status = document.querySelector('.filter-status');
+groups.forEach(group => group.addEventListener('click', e => {
+  const btn = e.target.closest('.filter');
+  if (!btn) return;
+  group.querySelectorAll('.filter').forEach(b => b.setAttribute('aria-pressed', b === btn));
+  const active = {};
+  groups.forEach(g => active[g.dataset.group] = g.querySelector('[aria-pressed="true"]').dataset.filter);
+  let shown = 0;
+  document.querySelectorAll('.workgrid .work').forEach(card => {
+    const ok = Object.entries(active).every(([k, v]) => v === 'all' || card.dataset[k].split(' ').includes(v));
+    card.hidden = !ok;
+    if (ok) shown++;
+  });
+  if (status) status.textContent = shown === 1 ? 'Showing 1 case study' : `Showing ${shown} case studies`;
 }));
 
-// Contact form (sent through Web3Forms, free)
+// Contact form (sent through Web3Forms)
 const form = document.getElementById('contact-form');
 if (form) {
-  const status = form.querySelector('.form-status');
+  const msg = form.querySelector('.form-status');
   form.addEventListener('submit', async e => {
     e.preventDefault();
-    const key = form.querySelector('[name="access_key"]').value;
-    if (key.includes('YOUR_')) {
-      status.className = 'form-status err';
-      status.textContent = 'The form is not connected yet: add your Web3Forms access key (see README step 3).';
+    if (form.access_key.value.includes('YOUR_')) {
+      msg.className = 'form-status err';
+      msg.textContent = 'The form is not connected yet. Please email team@contentauthoritylab.com instead.';
       return;
     }
     const button = form.querySelector('button[type="submit"]');
     button.disabled = true;
-    status.className = 'form-status';
-    status.textContent = 'Sending…';
+    msg.className = 'form-status';
+    msg.textContent = 'Sending...';
     try {
       const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
@@ -50,11 +81,11 @@ if (form) {
       const data = await res.json();
       if (!data.success) throw new Error(data.message);
       form.reset();
-      status.className = 'form-status ok';
-      status.textContent = 'Thank you! Your message has been sent. I usually reply within 1–2 business days.';
+      msg.className = 'form-status ok';
+      msg.textContent = 'Thank you. Your message is in, and we reply within 1 to 2 business days.';
     } catch (err) {
-      status.className = 'form-status err';
-      status.textContent = 'Sorry, something went wrong. Please try again or reach me on LinkedIn.';
+      msg.className = 'form-status err';
+      msg.textContent = 'Something went wrong. Please try again or email team@contentauthoritylab.com.';
     } finally {
       button.disabled = false;
     }
