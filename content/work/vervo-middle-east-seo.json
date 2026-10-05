@@ -1,0 +1,83 @@
+{
+  "name": "Vervo Middle East SEO",
+  "client": "Vervo Middle East",
+  "order": 1,
+  "title": "Vervo Middle East SEO Case Study | Content Authority Lab",
+  "description": "Site content and blog for a freight forwarder since 2022, with commercial service pages ranking alongside the guides.",
+  "tag": "Logistics · B2B · Dubai",
+  "h1": "Vervo Middle East: 4 years of SEO content",
+  "summary": "Site content and blog for a freight forwarder since 2022, with commercial service pages ranking alongside the guides.",
+  "kpis": [
+    {
+      "value": "159",
+      "label": "articles"
+    },
+    {
+      "value": "5",
+      "label": "#1 positions"
+    },
+    {
+      "value": "17K+",
+      "label": "monthly users"
+    }
+  ],
+  "cover": "/work/vervo-logistics-seo.png",
+  "downloads": [
+    {
+      "file": "/work/vervo-logistics-seo.pdf",
+      "label": "Download the full case study (PDF)"
+    }
+  ],
+  "downloads_note": "",
+  "services": [
+    "seo-content-writing",
+    "aeo-geo",
+    "technical-content-writing",
+    "website-copywriting"
+  ],
+  "industries": [
+    "logistics-content",
+    "b2b-content"
+  ],
+  "industry_note": "",
+  "next": [
+    "vervo-linkedin"
+  ],
+  "sections": [
+    {
+      "id": "",
+      "heading": "The brief",
+      "eyebrow": "",
+      "body": "",
+      "kpis": []
+    },
+    {
+      "id": "",
+      "heading": "What we did",
+      "eyebrow": "",
+      "body": "",
+      "kpis": []
+    },
+    {
+      "id": "",
+      "heading": "Results",
+      "eyebrow": "",
+      "body": "",
+      "kpis": []
+    },
+    {
+      "id": "",
+      "heading": "Front-end and on-page work",
+      "eyebrow": "",
+      "body": "",
+      "kpis": []
+    },
+    {
+      "id": "",
+      "heading": "Method and scope",
+      "eyebrow": "",
+      "body": "",
+      "kpis": []
+    }
+  ]
+}

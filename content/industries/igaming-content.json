@@ -1,0 +1,30 @@
+{
+  "name": "iGaming content",
+  "label": "iGaming",
+  "order": 2,
+  "title": "iGaming Content Writing | Content Authority Lab",
+  "description": "iGaming content writing in Arabic and English: casino reviews and affiliate pages built on dated, hands-on testing and honest findings.",
+  "audience": "iGaming operators and affiliates",
+  "h1": "iGaming content",
+  "lead": "",
+  "card_text": "",
+  "context": "",
+  "services": [
+    {
+      "service": "seo-content-writing",
+      "note": ""
+    },
+    {
+      "service": "website-copywriting",
+      "note": ""
+    },
+    {
+      "service": "technical-content-writing",
+      "note": ""
+    }
+  ],
+  "cases": [
+    "igaming-content-case-study"
+  ],
+  "faqs": []
+}

@@ -1,0 +1,37 @@
+{
+  "name": "Ecommerce & skincare content",
+  "label": "Ecommerce & skincare",
+  "order": 4,
+  "title": "Ecommerce Content Writing | Content Authority Lab",
+  "description": "Ecommerce content writing for skincare and retail brands: product pages, blog clusters and social media, in English and Arabic.",
+  "audience": "Ecommerce and skincare brands",
+  "h1": "Ecommerce & skincare content",
+  "lead": "",
+  "card_text": "",
+  "context": "",
+  "services": [
+    {
+      "service": "website-copywriting",
+      "note": ""
+    },
+    {
+      "service": "seo-content-writing",
+      "note": ""
+    },
+    {
+      "service": "aeo-geo",
+      "note": ""
+    },
+    {
+      "service": "social-media-content",
+      "note": ""
+    }
+  ],
+  "cases": [
+    "khan-el-kaser-seo",
+    "beesline-product-copy",
+    "hayaty-natural-seo",
+    "social-media-portfolio"
+  ],
+  "faqs": []
+}

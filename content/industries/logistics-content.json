@@ -1,0 +1,35 @@
+{
+  "name": "Logistics & freight content",
+  "label": "Logistics & freight",
+  "order": 1,
+  "title": "Logistics Content Writing | Content Authority Lab",
+  "description": "Content writing for freight forwarders and logistics companies: import guides, service pages and LinkedIn content for Gulf trade lanes.",
+  "audience": "Freight forwarders and logistics companies",
+  "h1": "Logistics & freight content",
+  "lead": "",
+  "card_text": "",
+  "context": "",
+  "services": [
+    {
+      "service": "seo-content-writing",
+      "note": ""
+    },
+    {
+      "service": "technical-content-writing",
+      "note": ""
+    },
+    {
+      "service": "social-media-content",
+      "note": ""
+    },
+    {
+      "service": "aeo-geo",
+      "note": ""
+    }
+  ],
+  "cases": [
+    "vervo-middle-east-seo",
+    "vervo-linkedin"
+  ],
+  "faqs": []
+}

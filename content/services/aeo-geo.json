@@ -1,0 +1,35 @@
+{
+  "name": "AEO & GEO",
+  "order": 2,
+  "title": "AEO and GEO Services | Content Authority Lab",
+  "description": "Answer engine and generative engine optimization: content structured to be quoted in AI Overviews, ChatGPT, Perplexity and Gemini.",
+  "h1": "AEO & GEO",
+  "lead": "",
+  "card_text": "Answer-ready structure so your content gets surfaced in AI Overviews, ChatGPT and Perplexity.",
+  "included": "",
+  "how": "",
+  "proof": [
+    {
+      "case": "khan-el-kaser-seo",
+      "anchor": "9.7% of search presence in AI Overviews",
+      "section": "",
+      "note": ""
+    },
+    {
+      "case": "vervo-middle-east-seo",
+      "anchor": "snippet lifted from our copy",
+      "section": "",
+      "note": ""
+    }
+  ],
+  "industries": [
+    "ecommerce-content",
+    "logistics-content",
+    "b2b-content"
+  ],
+  "reading": [
+    "seo-aeo-geo-explained"
+  ],
+  "faqs": [],
+  "hub_proof": "khan-el-kaser-seo"
+}

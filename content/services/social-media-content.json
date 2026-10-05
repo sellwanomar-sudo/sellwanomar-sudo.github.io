@@ -1,0 +1,39 @@
+{
+  "name": "Social media content",
+  "order": 6,
+  "title": "Social Media Content Services | Content Authority Lab",
+  "description": "Social media content for LinkedIn, Instagram and TikTok: calendars, captions, reel scripts and reporting, written in Arabic and English.",
+  "h1": "Social media content",
+  "lead": "",
+  "card_text": "Calendars, captions, reel scripts and LinkedIn/Instagram/TikTok growth, with reporting.",
+  "included": "",
+  "how": "",
+  "proof": [
+    {
+      "case": "vervo-linkedin",
+      "anchor": "5.42% engagement, zero paid",
+      "section": "",
+      "note": ""
+    },
+    {
+      "case": "social-media-portfolio",
+      "anchor": "five accounts, 415K audience",
+      "section": "",
+      "note": ""
+    },
+    {
+      "case": "hayaty-natural-seo",
+      "anchor": "two accounts from zero",
+      "section": "social",
+      "note": ""
+    }
+  ],
+  "industries": [
+    "logistics-content",
+    "b2b-content",
+    "ecommerce-content"
+  ],
+  "reading": [],
+  "faqs": [],
+  "hub_proof": "social-media-portfolio"
+}

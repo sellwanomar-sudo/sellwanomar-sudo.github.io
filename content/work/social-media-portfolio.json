@@ -1,0 +1,73 @@
+{
+  "name": "Social media portfolio",
+  "client": "Al-Hayat International School, Beesline and Khan El Kaser",
+  "order": 8,
+  "title": "Social Media Portfolio | Content Authority Lab",
+  "description": "Content calendars, reel scripts, captions and monitoring for five Instagram and TikTok accounts.",
+  "tag": "Education · Skincare · AR + EN",
+  "h1": "Social operations across three brands",
+  "summary": "Content calendars, reel scripts, captions and monitoring for five Instagram and TikTok accounts.",
+  "kpis": [
+    {
+      "value": "415K",
+      "label": "audience"
+    },
+    {
+      "value": "265K",
+      "label": "TikTok likes"
+    },
+    {
+      "value": "5",
+      "label": "accounts"
+    }
+  ],
+  "cover": "/work/social-operations.png",
+  "downloads": [
+    {
+      "file": "/work/social-operations.pdf",
+      "label": "Download the full case study (PDF)"
+    }
+  ],
+  "downloads_note": "",
+  "services": [
+    "social-media-content"
+  ],
+  "industries": [
+    "ecommerce-content"
+  ],
+  "industry_note": "",
+  "next": [
+    "khan-el-kaser-seo",
+    "beesline-product-copy"
+  ],
+  "sections": [
+    {
+      "id": "",
+      "heading": "The brief",
+      "eyebrow": "",
+      "body": "",
+      "kpis": []
+    },
+    {
+      "id": "",
+      "heading": "The accounts",
+      "eyebrow": "",
+      "body": "",
+      "kpis": []
+    },
+    {
+      "id": "",
+      "heading": "What we handled",
+      "eyebrow": "",
+      "body": "",
+      "kpis": []
+    },
+    {
+      "id": "",
+      "heading": "Method and scope",
+      "eyebrow": "",
+      "body": "",
+      "kpis": []
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+_site/
+__pycache__/
+node_modules/
+admin/decap-cms.js
+admin/*.decap-cms.js
+admin/*.wasm

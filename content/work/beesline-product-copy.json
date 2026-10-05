@@ -1,0 +1,80 @@
+{
+  "name": "Beesline product copy",
+  "client": "Beesline",
+  "order": 5,
+  "title": "Beesline Product Copy Case Study | Content Authority Lab",
+  "description": "A seven-part product page structure for the UAE storefront, written in English and Arabic at full parity.",
+  "tag": "Ecommerce · Skincare · EN + AR",
+  "h1": "Beesline: product pages that close objections",
+  "summary": "A seven-part product page structure for the UAE storefront, written in English and Arabic at full parity.",
+  "kpis": [
+    {
+      "value": "139",
+      "label": "product pages"
+    },
+    {
+      "value": "6",
+      "label": "storefronts"
+    },
+    {
+      "value": "7",
+      "label": "sections each"
+    }
+  ],
+  "cover": "/work/beesline-product-content.png",
+  "downloads": [
+    {
+      "file": "/work/beesline-product-content.pdf",
+      "label": "Download the full case study (PDF)"
+    }
+  ],
+  "downloads_note": "",
+  "services": [
+    "website-copywriting",
+    "technical-content-writing"
+  ],
+  "industries": [
+    "ecommerce-content"
+  ],
+  "industry_note": "",
+  "next": [
+    "social-media-portfolio"
+  ],
+  "sections": [
+    {
+      "id": "",
+      "heading": "The brief",
+      "eyebrow": "",
+      "body": "",
+      "kpis": []
+    },
+    {
+      "id": "",
+      "heading": "The seven-part structure",
+      "eyebrow": "",
+      "body": "",
+      "kpis": []
+    },
+    {
+      "id": "",
+      "heading": "English and Arabic parity",
+      "eyebrow": "",
+      "body": "",
+      "kpis": []
+    },
+    {
+      "id": "",
+      "heading": "On-page structure",
+      "eyebrow": "",
+      "body": "",
+      "kpis": []
+    },
+    {
+      "id": "",
+      "heading": "Method and scope",
+      "eyebrow": "",
+      "body": "",
+      "kpis": []
+    }
+  ]
+}

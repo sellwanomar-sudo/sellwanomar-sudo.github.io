@@ -1,0 +1,48 @@
+{
+  "name": "SEO content writing",
+  "order": 1,
+  "title": "SEO Content Writing Services | Content Authority Lab",
+  "description": "SEO content writing in Arabic and English: researched articles, guides and on-page optimization built around real search intent.",
+  "h1": "SEO content writing",
+  "lead": "",
+  "card_text": "Researched, EEAT-focused articles and guides built around real search intent. Includes on-page optimization: titles, metas, headings, internal links and hub-and-spoke topic clusters.",
+  "included": "",
+  "how": "",
+  "proof": [
+    {
+      "case": "vervo-middle-east-seo",
+      "anchor": "5 #1 positions in UAE Google",
+      "section": "",
+      "note": ""
+    },
+    {
+      "case": "khan-el-kaser-seo",
+      "anchor": "#1 for a hair-care pillar in eight weeks",
+      "section": "",
+      "note": ""
+    },
+    {
+      "case": "isa-bullion-seo",
+      "anchor": "four queries on page one, in two languages",
+      "section": "",
+      "note": ""
+    },
+    {
+      "case": "hayaty-natural-seo",
+      "anchor": "naming and slug decisions",
+      "section": "",
+      "note": ""
+    }
+  ],
+  "industries": [
+    "logistics-content",
+    "igaming-content",
+    "b2b-content",
+    "ecommerce-content"
+  ],
+  "reading": [
+    "seo-aeo-geo-explained"
+  ],
+  "faqs": [],
+  "hub_proof": "vervo-middle-east-seo"
+}

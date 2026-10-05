@@ -1,0 +1,345 @@
+# Decap CMS settings. The CMS lives at https://contentauthoritylab.com/admin/
+# Every save becomes a pull request ("editorial workflow"). Publishing merges it,
+# and GitHub Actions builds, audits and deploys the site.
+
+backend:
+  name: github
+  repo: sellwanomar-sudo/sellwanomar-sudo.github.io
+  branch: main
+  # GitHub login helper (Cloudflare Worker in cms-auth/). See README > "Set up the CMS".
+  base_url: https://cms-auth.contentauthoritylab.com
+  auth_endpoint: auth
+  commit_messages:
+    create: "Create {{collection}} \"{{slug}}\""
+    update: "Update {{collection}} \"{{slug}}\""
+    delete: "Delete {{collection}} \"{{slug}}\""
+    uploadMedia: "Upload \"{{path}}\""
+    deleteMedia: "Delete \"{{path}}\""
+
+publish_mode: editorial_workflow
+site_url: https://contentauthoritylab.com
+display_url: https://contentauthoritylab.com
+media_folder: work
+public_folder: /work
+show_preview_links: false
+
+collections:
+  - name: services
+    editor: {preview: false}
+    label: Services
+    label_singular: Service
+    description: "One page per service. Adding one also adds it to the header, footer and services hub."
+    folder: content/services
+    format: json
+    extension: json
+    create: true
+    identifier_field: name
+    slug: "{{slug}}"
+    summary: "{{order}}. {{name}}"
+    sortable_fields: [order, name]
+    fields:
+      - {label: "Name (menu label)", name: name, widget: string}
+      - {label: "Menu order", name: order, widget: number, value_type: int, default: 9}
+      - &title {label: "Title tag (max 60 characters)", name: title, widget: string, pattern: ['^.{1,60}$', "Keep it to 60 characters or fewer"]}
+      - &desc {label: "Meta description (max 155 characters)", name: description, widget: text, pattern: ['^[\s\S]{1,155}$', "Keep it to 155 characters or fewer"]}
+      - {label: H1, name: h1, widget: string}
+      - {label: Lead paragraph, name: lead, widget: markdown, required: false}
+      - {label: "Card text (services hub)", name: card_text, widget: text}
+      - {label: "What's included", name: included, widget: markdown, required: false}
+      - {label: "How we work", name: how, widget: markdown, required: false}
+      - label: Proof
+        name: proof
+        widget: list
+        summary: "{{fields.anchor}}"
+        fields:
+          - {label: "Case study", name: case, widget: relation, collection: work, value_field: "{{slug}}", search_fields: [name, h1], display_fields: [name]}
+          - {label: "Link text (unique to this case study)", name: anchor, widget: string}
+          - {label: "Jump to section id (optional)", name: section, widget: string, required: false}
+          - {label: "What it proves", name: note, widget: markdown, required: false}
+      - {label: Industries, name: industries, widget: relation, collection: industries, value_field: "{{slug}}", search_fields: [name], display_fields: [name], multiple: true}
+      - {label: "Further reading", name: reading, widget: relation, collection: posts, value_field: "{{slug}}", search_fields: [h1], display_fields: [h1], multiple: true, required: false}
+      - &faqs
+        label: "FAQs (published as FAQ structured data)"
+        name: faqs
+        widget: list
+        required: false
+        summary: "{{fields.question}}"
+        fields:
+          - {label: Question, name: question, widget: string}
+          - {label: Answer, name: answer, widget: markdown, buttons: [bold, italic, link, bulleted-list, numbered-list], editor_components: []}
+      - {label: "Proof link on the services hub", name: hub_proof, widget: relation, collection: work, value_field: "{{slug}}", search_fields: [name], display_fields: [name]}
+
+  - name: industries
+    editor: {preview: false}
+    label: Industries
+    label_singular: Industry
+    description: "Only add an industry page when you have a case study in that industry."
+    folder: content/industries
+    format: json
+    extension: json
+    create: true
+    identifier_field: name
+    slug: "{{slug}}"
+    summary: "{{order}}. {{name}}"
+    fields:
+      - {label: "Name (page title)", name: name, widget: string}
+      - {label: "Short label (menus)", name: label, widget: string}
+      - {label: "Menu order", name: order, widget: number, value_type: int, default: 9}
+      - *title
+      - *desc
+      - {label: "Audience (structured data)", name: audience, widget: string}
+      - {label: H1, name: h1, widget: string}
+      - {label: Lead paragraph, name: lead, widget: markdown, required: false}
+      - {label: "Card text (industries hub)", name: card_text, widget: text, required: false}
+      - {label: "What makes content work in this industry", name: context, widget: markdown, required: false}
+      - label: Services
+        name: services
+        widget: list
+        summary: "{{fields.service}}"
+        fields:
+          - {label: Service, name: service, widget: relation, collection: services, value_field: "{{slug}}", search_fields: [name], display_fields: [name]}
+          - {label: "What it looks like here", name: note, widget: markdown, required: false}
+      - {label: "Case studies", name: cases, widget: relation, collection: work, value_field: "{{slug}}", search_fields: [name], display_fields: [name], multiple: true}
+      - *faqs
+
+  - name: work
+    editor: {preview: false}
+    label: Case studies
+    label_singular: Case study
+    folder: content/work
+    format: json
+    extension: json
+    create: true
+    identifier_field: name
+    slug: "{{slug}}"
+    summary: "{{order}}. {{name}}"
+    fields:
+      - {label: "Name (breadcrumb)", name: name, widget: string}
+      - {label: "Client (structured data)", name: client, widget: string}
+      - {label: "Order on the work page", name: order, widget: number, value_type: int, default: 9}
+      - *title
+      - *desc
+      - {label: "Tag line", name: tag, widget: string}
+      - {label: H1, name: h1, widget: string}
+      - {label: "Summary (cards and lead)", name: summary, widget: text}
+      - &kpis
+        label: "Key numbers"
+        name: kpis
+        widget: list
+        required: false
+        summary: "{{fields.value}} {{fields.label}}"
+        fields:
+          - {label: Number, name: value, widget: string}
+          - {label: Label, name: label, widget: string}
+      - {label: "Cover image", name: cover, widget: image, required: false}
+      - label: Downloads
+        name: downloads
+        widget: list
+        required: false
+        summary: "{{fields.label}}"
+        fields:
+          - {label: File, name: file, widget: file}
+          - {label: Link text, name: label, widget: string}
+      - {label: "Note when there's no download", name: downloads_note, widget: string, required: false}
+      - {label: "Services used", name: services, widget: relation, collection: services, value_field: "{{slug}}", search_fields: [name], display_fields: [name], multiple: true}
+      - {label: Industries, name: industries, widget: relation, collection: industries, value_field: "{{slug}}", search_fields: [name], display_fields: [name], multiple: true, required: false}
+      - {label: "Industry text when none is linked", name: industry_note, widget: string, required: false}
+      - {label: "Next case study", name: next, widget: relation, collection: work, value_field: "{{slug}}", search_fields: [name], display_fields: [name], multiple: true}
+      - label: Sections
+        name: sections
+        widget: list
+        summary: "{{fields.heading}}"
+        fields:
+          - {label: Heading, name: heading, widget: string}
+          - {label: "Anchor id (optional, for links)", name: id, widget: string, required: false}
+          - {label: "Small label above (optional)", name: eyebrow, widget: string, required: false}
+          - {label: Body, name: body, widget: markdown, required: false}
+          - *kpis
+
+  - name: posts
+    editor: {preview: false}
+    label: Blog posts
+    label_singular: Blog post
+    folder: content/posts
+    format: json
+    extension: json
+    create: true
+    identifier_field: h1
+    slug: "{{slug}}"
+    summary: "{{date}} · {{h1}}"
+    sortable_fields: [date, h1]
+    fields:
+      - *title
+      - *desc
+      - {label: "Headline (H1)", name: h1, widget: string}
+      - {label: "Breadcrumb label", name: breadcrumb, widget: string}
+      - {label: "Category line", name: eyebrow, widget: string, hint: "e.g. SEO · AI search"}
+      - {label: Published, name: date, widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false}
+      - {label: Updated, name: modified, widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, required: false}
+      - {label: "Reading time", name: reading_time, widget: string, default: "5 min read"}
+      - {label: "Card summary", name: summary, widget: text}
+      - {label: Body, name: body, widget: markdown}
+      - *faqs
+      - {label: "Author box text", name: author_note, widget: markdown, required: false}
+      - {label: "Custom URL (leave blank for /blog/your-slug/)", name: url, widget: hidden, required: false}
+
+  - name: pages
+    editor: {preview: false}
+    label: Pages
+    files:
+      - label: Home
+        name: home
+        file: content/pages/home.json
+        fields:
+          - *title
+          - *desc
+          - {label: Small label, name: eyebrow, widget: string}
+          - {label: H1, name: h1, widget: string}
+          - {label: "H1 highlighted part", name: h1_highlight, widget: string}
+          - {label: Lead, name: lead, widget: text}
+          - {label: "Main button", name: primary_button, widget: string}
+          - {label: "Second button", name: secondary_button, widget: string}
+          - label: "Dark panel"
+            name: panel
+            widget: object
+            fields:
+              - {label: Label, name: label, widget: string}
+              - {label: "Big lines", name: lines, widget: list}
+              - {label: Bullets, name: bullets, widget: list}
+          - label: Stats
+            name: stats
+            widget: list
+            summary: "{{fields.value}} {{fields.label}}"
+            fields:
+              - {label: Number, name: value, widget: string}
+              - {label: Label, name: label, widget: string}
+          - label: "Services section"
+            name: services_section
+            widget: object
+            fields:
+              - {label: Small label, name: eyebrow, widget: string}
+              - {label: Heading, name: heading, widget: text}
+              - {label: Text, name: text, widget: text}
+          - label: "Service cards"
+            name: service_cards
+            widget: list
+            summary: "{{fields.heading}}"
+            fields:
+              - {label: Heading, name: heading, widget: string}
+              - {label: Text, name: text, widget: text}
+              - {label: "Links to", name: service, widget: relation, collection: services, value_field: "{{slug}}", search_fields: [name], display_fields: [name]}
+              - {label: "Link text", name: link_text, widget: string}
+          - label: "Industries section"
+            name: industries_section
+            widget: object
+            fields:
+              - {label: Small label, name: eyebrow, widget: string}
+              - {label: Heading, name: heading, widget: string}
+          - label: "Work section"
+            name: work_section
+            widget: object
+            fields:
+              - {label: Small label, name: eyebrow, widget: string}
+              - {label: Heading, name: heading, widget: text}
+              - {label: Text, name: text, widget: text}
+              - {label: "Featured case studies", name: featured, widget: relation, collection: work, value_field: "{{slug}}", search_fields: [name], display_fields: [name], multiple: true}
+              - {label: Button, name: button, widget: string}
+          - label: "About section"
+            name: about_section
+            widget: object
+            fields:
+              - {label: Small label, name: eyebrow, widget: string}
+              - {label: Heading, name: heading, widget: string}
+              - {label: Text, name: text, widget: text}
+              - {label: "Link text", name: link_text, widget: string}
+          - label: "Blog section"
+            name: blog_section
+            widget: object
+            fields:
+              - {label: Small label, name: eyebrow, widget: string}
+              - {label: Heading, name: heading, widget: text}
+              - {label: "Link text", name: link_text, widget: string}
+              - {label: "Empty card text", name: empty_card, widget: string}
+      - label: About
+        name: about
+        file: content/pages/about.json
+        fields:
+          - *title
+          - *desc
+          - {label: Small label, name: eyebrow, widget: string}
+          - {label: H1, name: h1, widget: string}
+          - {label: Body, name: body, widget: markdown}
+          - label: Founder
+            name: founder
+            widget: object
+            fields:
+              - {label: Name, name: name, widget: string}
+              - {label: Role, name: role, widget: string}
+              - {label: Bio, name: bio, widget: markdown, required: false}
+          - {label: "Method heading", name: method_heading, widget: string}
+          - {label: Method, name: method, widget: markdown, required: false}
+          - label: Facts
+            name: facts
+            widget: list
+            summary: "{{fields.label}}"
+            fields:
+              - {label: Label, name: label, widget: string}
+              - {label: Value, name: value, widget: string}
+          - {label: Tools, name: tools, widget: list}
+          - {label: "Clippings link text", name: clippings_text, widget: string}
+      - label: Contact
+        name: contact
+        file: content/pages/contact.json
+        fields:
+          - *title
+          - *desc
+          - {label: Small label, name: eyebrow, widget: string}
+          - {label: H1, name: h1, widget: string}
+          - {label: Text, name: text, widget: text}
+          - {label: "Form options", name: form_options, widget: list}
+          - {label: Button, name: button, widget: string}
+      - &hub
+        label: "Services hub"
+        name: services_hub
+        file: content/pages/services.json
+        fields:
+          - *title
+          - *desc
+          - {label: Small label, name: eyebrow, widget: string}
+          - {label: H1, name: h1, widget: string}
+          - {label: Lead, name: lead, widget: text, required: false}
+      - {<<: *hub, label: "Industries hub", name: industries_hub, file: content/pages/industries.json}
+      - {<<: *hub, label: "Work hub", name: work_hub, file: content/pages/work.json}
+      - {<<: *hub, label: "Blog hub", name: blog_hub, file: content/pages/blog.json}
+
+  - name: settings
+    label: Site settings
+    editor: {preview: false}
+    files:
+      - label: Site settings
+        name: site
+        file: content/site.json
+        fields:
+          - {label: "Site name", name: name, widget: string}
+          - {label: "Footer text", name: footer_text, widget: text}
+          - {label: Email, name: email, widget: string}
+          - {label: "LinkedIn URL", name: linkedin, widget: string}
+          - {label: "Clippings URL", name: clippings, widget: string}
+          - {label: "Service area", name: service_area, widget: list}
+          - {label: "Web3Forms access key", name: web3forms_key, widget: string}
+          - {label: "Default social image", name: default_image, widget: image}
+          - label: "Side box on service and industry pages"
+            name: start_box
+            widget: object
+            fields:
+              - {label: Heading, name: heading, widget: string}
+              - {label: Text, name: text, widget: string}
+              - {label: Button, name: button, widget: string}
+          - label: "Call to action (bottom of pages)"
+            name: cta
+            widget: object
+            fields:
+              - {label: Small label, name: eyebrow, widget: string}
+              - {label: Heading, name: heading, widget: string}
+              - {label: Text, name: text, widget: text}
+              - {label: Button, name: button, widget: string}

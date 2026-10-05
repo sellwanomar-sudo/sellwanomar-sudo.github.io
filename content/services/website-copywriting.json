@@ -1,0 +1,45 @@
+{
+  "name": "Website copywriting",
+  "order": 5,
+  "title": "Website Copywriting Services | Content Authority Lab",
+  "description": "Website and product page copywriting in English and Arabic at full parity: landing pages, product descriptions and trust pages that convert.",
+  "h1": "Website copywriting",
+  "lead": "",
+  "card_text": "Conversion-focused product descriptions and landing pages in English and Arabic at full parity.",
+  "included": "",
+  "how": "",
+  "proof": [
+    {
+      "case": "beesline-product-copy",
+      "anchor": "139 product pages at full EN/AR parity",
+      "section": "",
+      "note": ""
+    },
+    {
+      "case": "hayaty-natural-seo",
+      "anchor": "a nine-page trust layer",
+      "section": "",
+      "note": ""
+    },
+    {
+      "case": "vervo-middle-east-seo",
+      "anchor": "four commercial pages on page one",
+      "section": "",
+      "note": ""
+    },
+    {
+      "case": "igaming-content-case-study",
+      "anchor": "a review that publishes findings against the product",
+      "section": "",
+      "note": ""
+    }
+  ],
+  "industries": [
+    "ecommerce-content",
+    "logistics-content",
+    "igaming-content"
+  ],
+  "reading": [],
+  "faqs": [],
+  "hub_proof": "beesline-product-copy"
+}

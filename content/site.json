@@ -1,0 +1,27 @@
+{
+  "name": "Content Authority Lab",
+  "footer_text": "Bilingual SEO, AEO and GEO content, written in Arabic and English. Based in Cairo, working with teams in the UAE, KSA, Egypt, Lebanon and the UK.",
+  "email": "team@contentauthoritylab.com",
+  "linkedin": "https://www.linkedin.com/in/selwanomar/",
+  "clippings": "https://clippings.me/selwan-omar",
+  "service_area": [
+    "UAE",
+    "KSA",
+    "Egypt",
+    "Lebanon",
+    "UK"
+  ],
+  "web3forms_key": "YOUR_WEB3FORMS_ACCESS_KEY",
+  "default_image": "/work/vervo-logistics-seo.png",
+  "start_box": {
+    "heading": "Start a project",
+    "text": "Send us one page and one query you want to win.",
+    "button": "Get in touch"
+  },
+  "cta": {
+    "eyebrow": "Let's work together",
+    "heading": "Have a project worth talking about?",
+    "text": "Tell us about your website, audience and goals. We'll get back to you within 1–2 business days with next steps.",
+    "button": "Start a project"
+  }
+}

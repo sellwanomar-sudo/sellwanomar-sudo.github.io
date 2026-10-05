@@ -1,0 +1,88 @@
+{
+  "name": "Vervo LinkedIn",
+  "client": "Vervo Middle East",
+  "order": 7,
+  "title": "Vervo LinkedIn Case Study | Content Authority Lab",
+  "description": "A 100% organic B2B channel where two in three followers work in transport and logistics.",
+  "tag": "LinkedIn · B2B logistics",
+  "h1": "Vervo Middle East: a LinkedIn page built from zero",
+  "summary": "A 100% organic B2B channel where two in three followers work in transport and logistics.",
+  "kpis": [
+    {
+      "value": "22K",
+      "label": "impressions / yr"
+    },
+    {
+      "value": "5.42%",
+      "label": "engagement"
+    },
+    {
+      "value": "0",
+      "label": "paid"
+    }
+  ],
+  "cover": "/work/vervo-linkedin.png",
+  "downloads": [
+    {
+      "file": "/work/vervo-linkedin.pdf",
+      "label": "Download the full case study (PDF)"
+    }
+  ],
+  "downloads_note": "",
+  "services": [
+    "social-media-content",
+    "content-audits"
+  ],
+  "industries": [
+    "logistics-content",
+    "b2b-content"
+  ],
+  "industry_note": "",
+  "next": [
+    "vervo-middle-east-seo"
+  ],
+  "sections": [
+    {
+      "id": "",
+      "heading": "The brief",
+      "eyebrow": "",
+      "body": "",
+      "kpis": []
+    },
+    {
+      "id": "",
+      "heading": "What we did",
+      "eyebrow": "",
+      "body": "",
+      "kpis": []
+    },
+    {
+      "id": "",
+      "heading": "Results",
+      "eyebrow": "",
+      "body": "",
+      "kpis": []
+    },
+    {
+      "id": "",
+      "heading": "Audience",
+      "eyebrow": "",
+      "body": "",
+      "kpis": []
+    },
+    {
+      "id": "",
+      "heading": "What the year taught us",
+      "eyebrow": "",
+      "body": "",
+      "kpis": []
+    },
+    {
+      "id": "",
+      "heading": "Method and scope",
+      "eyebrow": "",
+      "body": "",
+      "kpis": []
+    }
+  ]
+}

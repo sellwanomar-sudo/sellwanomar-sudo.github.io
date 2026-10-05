@@ -1,0 +1,124 @@
+{
+  "title": "Content Authority Lab | SEO, AEO & GEO Content Strategy",
+  "description": "Bilingual Arabic and English content team for SEO, AEO and GEO, serving iGaming, logistics, B2B and ecommerce brands. See verified case studies.",
+  "eyebrow": "SEO · AEO · GEO content strategy · Arabic & English",
+  "h1": "Content that ranks on Google",
+  "h1_highlight": "and gets cited by AI.",
+  "lead": "We're a bilingual content team with 6+ years of experience helping iGaming, logistics, B2B and e-commerce brands grow their visibility with search-optimized, EEAT-focused content that converts.",
+  "primary_button": "See our work ↓",
+  "secondary_button": "Start a project",
+  "panel": {
+    "label": "Where we work",
+    "lines": [
+      "Search.",
+      "Language.",
+      "Strategy."
+    ],
+    "bullets": [
+      "Google, AI Overviews & answer engines",
+      "UAE, KSA, Egypt, Lebanon & UK markets",
+      "Research-led: law, economics & AI governance"
+    ]
+  },
+  "stats": [
+    {
+      "value": "6+",
+      "label": "Years in content"
+    },
+    {
+      "value": "6",
+      "label": "#1 rankings on Google UAE"
+    },
+    {
+      "value": "17K+",
+      "label": "Monthly users at Vervo"
+    },
+    {
+      "value": "10+",
+      "label": "Industries served"
+    }
+  ],
+  "services_section": {
+    "eyebrow": "What we offer",
+    "heading": "Built on substance,\nnot just keywords.",
+    "text": "We plan and write content that is easy for readers, search engines and AI platforms to understand, then track how it performs and improve it."
+  },
+  "service_cards": [
+    {
+      "heading": "SEO blog writing & long-form articles",
+      "text": "Researched, EEAT-focused articles and guides built around real search intent.",
+      "service": "seo-content-writing",
+      "link_text": "Explore SEO content writing →"
+    },
+    {
+      "heading": "AI search visibility (AEO & GEO)",
+      "text": "Answer-ready structure so your content gets surfaced in AI Overviews, ChatGPT and Perplexity.",
+      "service": "aeo-geo",
+      "link_text": "Explore AEO & GEO →"
+    },
+    {
+      "heading": "On-page optimization & keyword targeting",
+      "text": "Titles, metas, headings, internal links and hub-and-spoke topic clusters.",
+      "service": "seo-content-writing",
+      "link_text": "Explore on-page optimization →"
+    },
+    {
+      "heading": "Content audits",
+      "text": "Clear, prioritized recommendations on what to update, merge, cut or create.",
+      "service": "content-audits",
+      "link_text": "Explore content audits →"
+    },
+    {
+      "heading": "Technical writing",
+      "text": "Complex topics like customs, bullion and formulation explained accurately and simply.",
+      "service": "technical-content-writing",
+      "link_text": "Explore technical writing →"
+    },
+    {
+      "heading": "Product descriptions & landing pages",
+      "text": "Conversion-focused copy in English and Arabic at full parity.",
+      "service": "website-copywriting",
+      "link_text": "Explore website copywriting →"
+    },
+    {
+      "heading": "Performance tracking",
+      "text": "GA4, Search Console and SEMrush reporting that turns data into next steps.",
+      "service": "content-audits",
+      "link_text": "Explore performance tracking →"
+    },
+    {
+      "heading": "Social media content & reporting",
+      "text": "Calendars, captions, reel scripts and LinkedIn/Instagram/TikTok growth.",
+      "service": "social-media-content",
+      "link_text": "Explore social media content →"
+    }
+  ],
+  "industries_section": {
+    "eyebrow": "Industries",
+    "heading": "Who we write for."
+  },
+  "work_section": {
+    "eyebrow": "Selected work",
+    "heading": "Case studies with\nverified results.",
+    "text": "Every ranking below was checked on a live, geo-located Google results page. Click any card to open the full case study.",
+    "featured": [
+      "vervo-middle-east-seo",
+      "khan-el-kaser-seo",
+      "isa-bullion-seo",
+      "beesline-product-copy"
+    ],
+    "button": "See all case studies"
+  },
+  "about_section": {
+    "eyebrow": "About us",
+    "heading": "Good content starts with good questions.",
+    "text": "Content Authority Lab is a small bilingual content team. For the last six years we've helped businesses grow their online visibility through search-optimized, EEAT-focused, high-converting content.",
+    "link_text": "How we work"
+  },
+  "blog_section": {
+    "eyebrow": "From the blog",
+    "heading": "Notes on search, AI\nand content.",
+    "link_text": "See all articles →",
+    "empty_card": "More articles coming soon."
+  }
+}

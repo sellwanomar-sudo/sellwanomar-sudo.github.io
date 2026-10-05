@@ -1,0 +1,65 @@
+# Builds the site from content/, audits it, and publishes it to GitHub Pages.
+# Runs on every push to main (including CMS publishes) and on pull requests (check only).
+name: Build, audit and deploy
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  DECAP_VERSION: 3.16.3
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # full history, so sitemap.xml gets real last-modified dates
+          persist-credentials: false
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Build
+        run: python build.py
+
+      - name: Audit (fails the run on any error)
+        run: python audit_site.py _site
+
+      - name: Add the CMS (pinned version, integrity checked by npm)
+        run: |
+          npm pack "decap-cms@${DECAP_VERSION}" --silent
+          tar -xzf "decap-cms-${DECAP_VERSION}.tgz"
+          cp package/dist/decap-cms.js package/dist/*.decap-cms.js package/dist/*.wasm _site/admin/
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

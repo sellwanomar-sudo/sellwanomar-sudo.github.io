@@ -1,0 +1,4 @@
+:root{--ink:#0f1626;--muted:#5a6275;--paper:#f6f4ef;--card:#ffffff;--accent:#a67c2d;--accent-soft:#e6cf9a;--gold:#8f6418;--line:#e2ddd2;--dark:#0f1626;--radius:12px}
+.hero-panel{transform:none;box-shadow:10px 10px 0 #e6cf9a}
+h1,h2{letter-spacing:-.03em}
+.eyebrow{color:#8f6418}

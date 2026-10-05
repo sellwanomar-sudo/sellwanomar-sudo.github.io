@@ -158,6 +158,14 @@ Figures I'll use as-is because they're on the current site: "6+ years in content
 - **Q4.** ISA Bullion is linked from service pages only, not from B2B. It's parked as the proof that would unlock `/industries/fintech-finance-content/`.
 - **Scope.** The site owner writes all copy. The build supplies structure, linking, schema and visible `[CONTENT: ...]` placeholders.
 
+### Decisions (approved 5 Oct 2026, second round)
+
+- CMS: Decap, in editorial workflow (every edit is a reviewed pull request). The GitHub login runs through the Cloudflare Worker in `cms-auth/`.
+- Content lives in `content/*.json`. `build.py` renders it and generates the menus from the service and industry lists.
+- Deploy: GitHub Actions build, audit and publish. The Pages source switches to "GitHub Actions" at launch.
+- Security: in-code protections only for now (CSP, referrer policy, rel attributes, security.txt, admin hidden, least-privilege workflow). GitHub settings and Cloudflare headers are pending a decision.
+- Design: four directions are in `_planning/design-directions/`. None is applied.
+
 ## 6. Build notes
 
 - Fonts change from Manrope to Montserrat with an Arial fallback.

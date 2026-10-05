@@ -1,0 +1,87 @@
+{
+  "name": "Khan El Kaser SEO",
+  "client": "Khan El Kaser",
+  "order": 2,
+  "title": "Khan El Kaser SEO Case Study | Content Authority Lab",
+  "description": "A 64-article operation localizing every skincare question to the Gulf climate, outranking salon chains and global retailers.",
+  "tag": "Skincare · UAE & KSA · EN + AR",
+  "h1": "Khan El Kaser: Gulf-localized content engine",
+  "summary": "A 64-article operation localizing every skincare question to the Gulf climate, outranking salon chains and global retailers.",
+  "kpis": [
+    {
+      "value": "#1",
+      "label": "Google UAE"
+    },
+    {
+      "value": "144",
+      "label": "keywords"
+    },
+    {
+      "value": "9.7%",
+      "label": "AI Overviews"
+    }
+  ],
+  "cover": "/work/khan-el-kaser-seo.png",
+  "downloads": [
+    {
+      "file": "/work/khan-el-kaser-seo.pdf",
+      "label": "Download the full case study (PDF)"
+    }
+  ],
+  "downloads_note": "",
+  "services": [
+    "seo-content-writing",
+    "aeo-geo"
+  ],
+  "industries": [
+    "ecommerce-content"
+  ],
+  "industry_note": "",
+  "next": [
+    "social-media-portfolio"
+  ],
+  "sections": [
+    {
+      "id": "",
+      "heading": "The brief",
+      "eyebrow": "",
+      "body": "",
+      "kpis": []
+    },
+    {
+      "id": "",
+      "heading": "What we did",
+      "eyebrow": "",
+      "body": "",
+      "kpis": []
+    },
+    {
+      "id": "",
+      "heading": "Results",
+      "eyebrow": "",
+      "body": "",
+      "kpis": []
+    },
+    {
+      "id": "",
+      "heading": "AI search visibility",
+      "eyebrow": "",
+      "body": "",
+      "kpis": []
+    },
+    {
+      "id": "",
+      "heading": "On-page structure",
+      "eyebrow": "",
+      "body": "",
+      "kpis": []
+    },
+    {
+      "id": "",
+      "heading": "Method and scope",
+      "eyebrow": "",
+      "body": "",
+      "kpis": []
+    }
+  ]
+}

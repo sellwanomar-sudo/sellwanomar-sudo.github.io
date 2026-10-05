@@ -1,0 +1,46 @@
+{
+  "name": "Technical content writing",
+  "order": 4,
+  "title": "Technical Content Writing | Content Authority Lab",
+  "description": "Technical content writing for regulated and complex topics such as customs, bullion and cosmetic formulation, accurate in Arabic and English.",
+  "h1": "Technical content writing",
+  "lead": "",
+  "card_text": "Complex topics like customs, bullion and formulation explained accurately and simply.",
+  "included": "",
+  "how": "",
+  "proof": [
+    {
+      "case": "vervo-middle-east-seo",
+      "anchor": "a 6,000-word cold chain guide citing two UAE laws",
+      "section": "",
+      "note": ""
+    },
+    {
+      "case": "isa-bullion-seo",
+      "anchor": "bullion in a regulated niche",
+      "section": "",
+      "note": ""
+    },
+    {
+      "case": "hayaty-natural-seo",
+      "anchor": "INCI-level botanical reference",
+      "section": "",
+      "note": ""
+    },
+    {
+      "case": "beesline-product-copy",
+      "anchor": "INCI carried into Arabic",
+      "section": "",
+      "note": ""
+    }
+  ],
+  "industries": [
+    "logistics-content",
+    "b2b-content",
+    "ecommerce-content",
+    "igaming-content"
+  ],
+  "reading": [],
+  "faqs": [],
+  "hub_proof": "isa-bullion-seo"
+}

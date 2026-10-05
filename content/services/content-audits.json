@@ -1,0 +1,39 @@
+{
+  "name": "Content audits",
+  "order": 3,
+  "title": "Content Audit Services | Content Authority Lab",
+  "description": "Content audits with performance tracking: what to update, merge, cut or create, prioritized from GA4, Search Console and SEMrush data.",
+  "h1": "Content audits",
+  "lead": "",
+  "card_text": "Clear, prioritized recommendations on what to update, merge, cut or create. Includes performance tracking: GA4, Search Console and SEMrush reporting that turns data into next steps.",
+  "included": "",
+  "how": "",
+  "proof": [
+    {
+      "case": "vervo-middle-east-seo",
+      "anchor": "cut volume 86%, raised depth fivefold",
+      "section": "",
+      "note": ""
+    },
+    {
+      "case": "vervo-linkedin",
+      "anchor": "127 posts re-weighted by result",
+      "section": "",
+      "note": ""
+    },
+    {
+      "case": "isa-bullion-seo",
+      "anchor": "44 months of daily reporting",
+      "section": "",
+      "note": ""
+    }
+  ],
+  "industries": [
+    "logistics-content",
+    "b2b-content",
+    "ecommerce-content"
+  ],
+  "reading": [],
+  "faqs": [],
+  "hub_proof": "vervo-linkedin"
+}

@@ -261,3 +261,6 @@ textarea{min-height:130px;resize:vertical}
 /* Content placeholders: delete each one once the copy is written */
 .todo{border:1.5px dashed #c9a227;background:#fffbea;color:#6b5200;border-radius:12px;padding:12px 16px;font-size:.9rem;font-weight:600}
 .thumb.blank{display:grid;place-items:center;color:var(--muted);font-weight:700;font-size:.85rem}
+.pad-bottom{padding-bottom:64px}
+.box-link{margin:16px 0 0}
+.lead p{margin:0 0 12px}

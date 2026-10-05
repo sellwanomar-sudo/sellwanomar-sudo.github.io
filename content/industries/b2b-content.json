@@ -1,0 +1,35 @@
+{
+  "name": "B2B content",
+  "label": "B2B",
+  "order": 3,
+  "title": "B2B Content Writing | Content Authority Lab",
+  "description": "B2B content writing for companies that sell to other businesses: search content, technical guides and LinkedIn programs for buyers.",
+  "audience": "B2B companies",
+  "h1": "B2B content",
+  "lead": "",
+  "card_text": "",
+  "context": "",
+  "services": [
+    {
+      "service": "seo-content-writing",
+      "note": ""
+    },
+    {
+      "service": "technical-content-writing",
+      "note": ""
+    },
+    {
+      "service": "social-media-content",
+      "note": ""
+    },
+    {
+      "service": "content-audits",
+      "note": ""
+    }
+  ],
+  "cases": [
+    "vervo-linkedin",
+    "vervo-middle-east-seo"
+  ],
+  "faqs": []
+}

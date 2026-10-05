@@ -1,0 +1,68 @@
+{
+  "name": "iGaming casino review",
+  "client": "An Arabic-language casino review site",
+  "order": 4,
+  "title": "iGaming Casino Review Case Study | Content Authority Lab",
+  "description": "Ghostwritten A to Z, written natively in both languages, with dated hands-on tests and findings published against the product.",
+  "tag": "iGaming · Arabic + English",
+  "h1": "An honest casino review, in two languages",
+  "summary": "Ghostwritten A to Z, written natively in both languages, with dated hands-on tests and findings published against the product.",
+  "kpis": [
+    {
+      "value": "2",
+      "label": "languages"
+    },
+    {
+      "value": "8",
+      "label": "dated tests"
+    },
+    {
+      "value": "20+",
+      "label": "sections"
+    }
+  ],
+  "cover": "",
+  "downloads": [],
+  "downloads_note": "Ghostwritten for the client, so the live page is not linked.",
+  "services": [
+    "seo-content-writing",
+    "website-copywriting"
+  ],
+  "industries": [
+    "igaming-content"
+  ],
+  "industry_note": "",
+  "next": [
+    "isa-bullion-seo"
+  ],
+  "sections": [
+    {
+      "id": "",
+      "heading": "The brief",
+      "eyebrow": "",
+      "body": "",
+      "kpis": []
+    },
+    {
+      "id": "",
+      "heading": "How the review was built",
+      "eyebrow": "",
+      "body": "",
+      "kpis": []
+    },
+    {
+      "id": "",
+      "heading": "What it publishes against the product",
+      "eyebrow": "",
+      "body": "",
+      "kpis": []
+    },
+    {
+      "id": "",
+      "heading": "Method and scope",
+      "eyebrow": "",
+      "body": "",
+      "kpis": []
+    }
+  ]
+}

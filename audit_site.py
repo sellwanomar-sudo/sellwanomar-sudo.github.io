@@ -12,11 +12,13 @@ Errors (exit code 1):
   - missing JSON-LD, or JSON-LD that doesn't parse
   - sitemap coverage, both ways
   - leftover [NEEDS SOURCE] markers
+  - missing Content-Security-Policy meta tag (security)
 Warnings (reported, don't fail):
   - pages with fewer than 2 inbound internal links
   - canonical that doesn't match the page's own URL
   - em dashes in visible text (house style)
   - unfilled [CONTENT: ...] placeholders
+  - external links that open without rel="noopener noreferrer" (security)
 """
 import json
 import posixpath
@@ -42,6 +44,8 @@ class PageParser(HTMLParser):
         self.description = None
         self.canonical = None
         self.noindex = False
+        self.csp = False
+        self.external = []
         self.h1 = 0
         self.links = []
         self.assets = []
@@ -65,6 +69,8 @@ class PageParser(HTMLParser):
                 self.description = (a.get("content") or "").strip()
             elif name == "robots" and "noindex" in (a.get("content") or "").lower():
                 self.noindex = True
+            elif (a.get("http-equiv") or "").lower() == "content-security-policy":
+                self.csp = True
         elif tag == "link":
             rel = (a.get("rel") or "").lower().split()
             if "canonical" in rel:
@@ -75,6 +81,8 @@ class PageParser(HTMLParser):
             self.h1 += 1
         elif tag == "a" and a.get("href"):
             self.links.append(a["href"])
+            if a["href"].startswith(("http://", "https://")):
+                self.external.append((a["href"], (a.get("rel") or "").lower().split()))
         elif tag in ("img", "source") and a.get("src"):
             self.assets.append(a["src"])
         elif tag == "script":
@@ -105,9 +113,13 @@ class PageParser(HTMLParser):
             self.text.append(data)
 
 
+SKIP_DIRS = {"admin"}  # the CMS app shell, not a site page (noindex, blocked in robots.txt)
+
+
 def is_page_file(p, root):
     rel = p.relative_to(root).parts
-    return p.suffix == ".html" and not any(part.startswith((".", "_")) for part in rel)
+    return (p.suffix == ".html" and not any(part.startswith((".", "_")) for part in rel)
+            and rel[0] not in SKIP_DIRS)
 
 
 def file_to_url(p, root):
@@ -247,6 +259,11 @@ def main():
                 warn(url, f"canonical {pp.canonical} != {origin + url}")
             if not pp.jsonld:
                 err(url, "no JSON-LD")
+        if not pp.csp:
+            err(url, "no Content-Security-Policy meta tag")
+        for href, rel in pp.external:
+            if host not in href and not {"noopener", "noreferrer"} <= set(rel):
+                warn(url, f"external link without rel=\"noopener noreferrer\": {href}")
         if pp.h1 != 1:
             err(url, f"{pp.h1} <h1> elements (need exactly 1)")
         for i, block in enumerate(pp.jsonld, 1):

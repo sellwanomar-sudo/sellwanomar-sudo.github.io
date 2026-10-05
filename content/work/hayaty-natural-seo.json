@@ -1,0 +1,106 @@
+{
+  "name": "Hayaty Natural",
+  "client": "Hayaty Natural",
+  "order": 6,
+  "title": "Hayaty Natural Case Study | Content Authority Lab",
+  "description": "An INCI-level botanical glossary, brand narrative pages and a product naming system for a UK Shopify store.",
+  "tag": "Natural skincare · UK",
+  "h1": "Hayaty Natural: website content, on-page SEO and social",
+  "summary": "An INCI-level botanical glossary, brand narrative pages and a product naming system for a UK Shopify store.",
+  "kpis": [
+    {
+      "value": "10+",
+      "label": "INCI entries"
+    },
+    {
+      "value": "9",
+      "label": "content pages"
+    },
+    {
+      "value": "9",
+      "label": "collections"
+    }
+  ],
+  "cover": "/work/hayaty-natural-web-content.png",
+  "downloads": [
+    {
+      "file": "/work/hayaty-natural-web-content.pdf",
+      "label": "Website case study (PDF)"
+    },
+    {
+      "file": "/work/hayaty-natural-social.pdf",
+      "label": "Social media case study (PDF)"
+    }
+  ],
+  "downloads_note": "",
+  "services": [
+    "website-copywriting",
+    "technical-content-writing",
+    "social-media-content",
+    "seo-content-writing"
+  ],
+  "industries": [
+    "ecommerce-content"
+  ],
+  "industry_note": "",
+  "next": [
+    "khan-el-kaser-seo"
+  ],
+  "sections": [
+    {
+      "id": "",
+      "heading": "The brief",
+      "eyebrow": "",
+      "body": "",
+      "kpis": []
+    },
+    {
+      "id": "",
+      "heading": "Website content",
+      "eyebrow": "",
+      "body": "",
+      "kpis": []
+    },
+    {
+      "id": "",
+      "heading": "On-page SEO: naming, slugs and taxonomy",
+      "eyebrow": "",
+      "body": "",
+      "kpis": []
+    },
+    {
+      "id": "social",
+      "heading": "Hayaty Natural: social from launch to handover",
+      "eyebrow": "Instagram · TikTok · UK",
+      "body": "Opened both accounts on launch day and ran them daily for three years with no paid audience.",
+      "kpis": [
+        {
+          "value": "5K",
+          "label": "TikTok"
+        },
+        {
+          "value": "1.7K",
+          "label": "Instagram"
+        },
+        {
+          "value": "~1,000",
+          "label": "posts"
+        }
+      ]
+    },
+    {
+      "id": "",
+      "heading": "Social media: strategy and system",
+      "eyebrow": "",
+      "body": "",
+      "kpis": []
+    },
+    {
+      "id": "",
+      "heading": "Method and scope",
+      "eyebrow": "",
+      "body": "",
+      "kpis": []
+    }
+  ]
+}

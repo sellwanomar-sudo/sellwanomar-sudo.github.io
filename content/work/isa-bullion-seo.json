@@ -1,0 +1,72 @@
+{
+  "name": "ISA Bullion SEO",
+  "client": "ISA Bullion",
+  "order": 3,
+  "title": "ISA Bullion SEO Case Study | Content Authority Lab",
+  "description": "A 1,422-URL content operation competing with banks and global brokers. All four target queries are on page one.",
+  "tag": "Finance · Precious metals · EN + AR",
+  "h1": "ISA Bullion: bilingual SEO in a regulated niche",
+  "summary": "A 1,422-URL content operation competing with banks and global brokers. All four target queries are on page one.",
+  "kpis": [
+    {
+      "value": "3.2K",
+      "label": "visits / mo"
+    },
+    {
+      "value": "4/4",
+      "label": "page one"
+    },
+    {
+      "value": "1,422",
+      "label": "URLs"
+    }
+  ],
+  "cover": "/work/isa-bullion-seo.png",
+  "downloads": [
+    {
+      "file": "/work/isa-bullion-seo.png",
+      "label": "View the one-page summary (PNG)"
+    }
+  ],
+  "downloads_note": "",
+  "services": [
+    "seo-content-writing",
+    "technical-content-writing",
+    "content-audits"
+  ],
+  "industries": [],
+  "industry_note": "Finance and precious metals",
+  "next": [
+    "vervo-middle-east-seo"
+  ],
+  "sections": [
+    {
+      "id": "",
+      "heading": "The brief",
+      "eyebrow": "",
+      "body": "",
+      "kpis": []
+    },
+    {
+      "id": "",
+      "heading": "What we did",
+      "eyebrow": "",
+      "body": "",
+      "kpis": []
+    },
+    {
+      "id": "",
+      "heading": "Results",
+      "eyebrow": "",
+      "body": "",
+      "kpis": []
+    },
+    {
+      "id": "",
+      "heading": "Method and scope",
+      "eyebrow": "",
+      "body": "",
+      "kpis": []
+    }
+  ]
+}
