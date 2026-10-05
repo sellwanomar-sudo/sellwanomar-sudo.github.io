@@ -1,65 +1,88 @@
 # Content Authority Lab
 
-Live site: **https://contentauthoritylab.com**
+Live site: **https://contentauthoritylab.com**, hosted free on GitHub Pages.
 
-This is the portfolio and blog of Content Authority Lab, a bilingual SEO, AEO and GEO content team. It's hosted free on GitHub Pages.
-
-**The golden rule:** every change you commit to the `main` branch goes live automatically within 1 to 2 minutes.
-If you don't see a change, press **Ctrl+F5** on the site to skip your browser's cache.
-
-**How the site is built:** you edit the files in `_src/`, run `python build.py`, then `python audit_site.py`, and commit.
-`build.py` adds the shared header, footer, breadcrumbs, structured data (JSON-LD) and `sitemap.xml` to every page, so you never edit those by hand.
-Both scripts use plain Python 3 with nothing to install.
+## How it works
 
 ```
-_src/header.html, footer.html   Shared header and footer (edit once, every page updates)
-_src/pages/                     One file per page. The folder path matches the URL
-_src/pages/blog/_post-template.html   Blank post template (files starting with _ are not published)
-build.py                        Builds the HTML pages and sitemap.xml from _src/
-audit_site.py                   Checks links, titles, descriptions, H1s, schema and sitemap. Must say PASS before you publish
-_planning/site-plan.md          Page inventory, linking matrix and parked pages
-work/                           Case-study PDFs and cover images
-assets/style.css, site.js       Design and behavior
+content/          All page text, as JSON. Edited through the CMS (or by hand)
+admin/            The CMS (Decap) at /admin/, and its settings in config.yml
+cms-auth/         GitHub login helper for the CMS (a Cloudflare Worker)
+build.py          Turns content/ into the website in _site/: menus, links, schema, sitemap
+audit_site.py     Checks links, titles, descriptions, H1s, schema, sitemap and security tags
+.github/workflows Builds, audits and publishes on every change to main
+assets/, work/    Design files, case-study PDFs and images
+_planning/        Site plan and design directions (not published)
 ```
 
-The generated folders (`services/`, `industries/`, `work/<case>/`, `about/`, `contact/`, `blog/`) and `index.html` are build output. Don't edit them directly: your change would be overwritten on the next build.
+1. You edit a page in the CMS and click **Save**. That creates a draft (a pull request).
+2. GitHub builds and audits the draft automatically. A red X means the audit found a problem.
+3. You click **Publish** in the CMS. GitHub builds again and the site updates in 1 to 2 minutes.
 
-## Edit a page
-1. Open the page's file in `_src/pages/` (for example `_src/pages/services/aeo-geo.html`).
-2. The JSON block at the top holds the title (max 60 characters), meta description (max 155) and page type. The HTML below it is the page body.
-3. Replace each yellow `[CONTENT: ...]` box with your copy. The audit lists the ones still left.
-4. FAQ: write each question as `<details><summary>Question?</summary><p>Answer.</p></details>` inside the `<div class="faq">`. It's published as FAQ structured data automatically.
-5. Run `python build.py` and `python audit_site.py`, then commit.
+Nothing in `_site/` is stored in the repo. It's rebuilt from `content/` every time.
 
-## Add a blog post
-1. Copy `_src/pages/blog/_post-template.html` to `_src/pages/blog/your-slug.html` and fill in every CAPITALIZED placeholder.
-2. Add a card for it in `_src/pages/blog/index.html` (and optionally in `_src/pages/index.html`).
-3. Run `python build.py` (it adds the post to `sitemap.xml`) and `python audit_site.py`, then commit.
-4. In Google Search Console, use **URL Inspection → Request indexing**.
+## Using the CMS
+Go to **https://contentauthoritylab.com/admin/** and click **Login with GitHub**.
 
-## Other everyday changes
-- **Connect the contact form:** get a free key at https://web3forms.com using `team@contentauthoritylab.com`, then in `_src/pages/contact.html` replace `YOUR_WEB3FORMS_ACCESS_KEY` with it and rebuild.
-- **Add a case study:** add the PDF and cover PNG to `work/`, copy a file in `_src/pages/work/`, then add its card to `_src/pages/work/index.html` and link it from the relevant service and industry pages.
-- **Change colors:** edit the values at the top of `assets/style.css`.
-- **Undo a mistake:** open the file, click **History**, open the previous version, copy it, and paste it back in.
+- **Services, Industries, Case studies, Blog posts:** one entry per page. Adding a service or industry adds it to the header and footer menus automatically.
+- **Pages:** the homepage, About, Contact, and the intro text of the four hub pages.
+- **Site settings:** email, links, the bottom call to action, the contact form key.
+- Empty fields show on the site as yellow `[CONTENT: ...]` boxes until you fill them.
+- Title tags are limited to 60 characters and descriptions to 155. The CMS won't let you save longer ones.
+- Files you upload go into `work/`.
 
-## Get found on Google
-1. In Google Search Console, add the URL-prefix property `https://contentauthoritylab.com/`.
-   Choose **DNS** verification in Cloudflare (the HTML tag would need adding to `build.py`).
-2. Submit `sitemap.xml`.
-3. Add the site link to LinkedIn (Contact info and Featured), clippings.me and your CV.
+## Set up the CMS login (one time, about 15 minutes)
+GitHub requires a small login helper for Decap. It runs free on your Cloudflare account.
+
+**1. Create a GitHub OAuth App**
+1. GitHub → your profile picture → **Settings → Developer settings → OAuth Apps → New OAuth App**.
+2. Application name: `Content Authority Lab CMS`
+3. Homepage URL: `https://contentauthoritylab.com`
+4. Authorization callback URL: `https://cms-auth.contentauthoritylab.com/callback`
+5. Click **Register application**, then **Generate a new client secret**. Keep the Client ID and the secret open in this tab.
+
+**2. Create the Cloudflare Worker**
+1. Cloudflare dashboard → **Workers & Pages → Create → Create Worker**. Name it `cms-auth`, then click **Deploy**.
+2. Click **Edit code**, delete what's there, paste everything from `cms-auth/worker.js`, and click **Deploy**.
+3. Go to **Settings → Variables and Secrets** and add:
+   - `GITHUB_CLIENT_ID`: the Client ID (type: Text)
+   - `GITHUB_CLIENT_SECRET`: the client secret (type: **Secret**)
+4. **Settings → Domains & Routes → Add → Custom domain:** `cms-auth.contentauthoritylab.com`
+
+**3. Test:** open `/admin/`, click **Login with GitHub**, and approve. You're in.
+
+## Launch checklist (one time, when the content is ready)
+1. Merge the `rebuild/flat-architecture` branch into `main`.
+2. Repository → **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+3. Watch the **Actions** tab: the "Build, audit and deploy" run should go green.
+4. In Google Search Console, submit `https://contentauthoritylab.com/sitemap.xml`.
+
+## Working without the CMS
+```
+pip install -r requirements.txt
+python build.py
+python audit_site.py _site
+python -m http.server -d _site 8000     # preview at http://localhost:8000
+```
+The CMS screen at `/admin/` only works on the live site (the CMS itself is added during deploy).
+
+## Security in place
+- A Content-Security-Policy on every page: scripts only from this site, the form posts only to Web3Forms, and no plugins or embedding of other sites' code.
+- A strict referrer policy, and `noopener noreferrer` on external links.
+- `/.well-known/security.txt` with a contact for security reports.
+- The CMS is hidden from search engines (`noindex` and blocked in `robots.txt`). Only people with write access to this GitHub repo can log in.
+- Every CMS change is a reviewed pull request, and nothing deploys unless the audit passes.
+- The build workflow runs with read-only permissions. Only the deploy step can publish, and the CMS version is pinned.
+- The login helper checks a one-time state value against forged logins and only hands the GitHub token to contentauthoritylab.com.
+
+Not done yet (needs your decision): HTTPS enforcement, main-branch protection and Dependabot on GitHub, plus HSTS and anti-clickjacking headers through Cloudflare.
 
 ## Your domain
 `contentauthoritylab.com` is registered at Cloudflare and connected to this repository.
 DNS (Cloudflare → DNS → Records) must stay as: four A records on `@` pointing to 185.199.108–111.153,
-and a CNAME on `www` pointing to `sellwanomar-sudo.github.io`. All of them set to **DNS only**, never "Proxied".
+a CNAME on `www` pointing to `sellwanomar-sudo.github.io`, all set to **DNS only**. Add the `cms-auth` Worker domain in step 2 above.
 The `CNAME` file in this repository holds the domain name: don't delete it.
-The old `sellwanomar-sudo.github.io` address now redirects here automatically.
 
 ## Your email
 `team@contentauthoritylab.com` is set up through Cloudflare Email Routing (free) and forwards to sellwan.omar@gmail.com.
-Manage it in Cloudflare → Email Routing → Routing rules, where you can add more addresses such as `hello@` or `billing@`.
 To send mail *from* that address, add it in Gmail under Settings → Accounts → "Send mail as", using an SMTP service such as Brevo.
-
-## Voice and names
-The HTML pages speak as "we". The About page names Selwan Omar as Founder and Lead Strategist, with Person structured data linked to the Organization (set in `build.py`). The PDFs in `work/` are unchanged.
